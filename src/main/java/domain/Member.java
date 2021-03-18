@@ -10,15 +10,16 @@ import java.util.List;
 @Entity
 @Getter @Setter
 public class Member {
-    @Id @GeneratedValue
-    @Column(name = "member_id")
+
+    @Id @GeneratedValue//기본키,값순차 증가
+    @Column(name = "member_id")//Column 이름
     private Long id;
 
-    private String name;
+    private String name;//이름
+    
+    @Embedded//값타입 포함 어노테이션
+    private Address address;//주소
 
-    @Embedded
-    private Address address;
-
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member")//1:n, mappedBy 읽기 전용 Order.class에 member
     private List<Order> orders = new ArrayList<>();
 }

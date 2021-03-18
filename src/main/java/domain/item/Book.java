@@ -7,10 +7,11 @@ import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
-@DiscriminatorValue("B")
 @Getter @Setter
+@DiscriminatorValue("B")//싱글테이블 dtype에 넣을값
 public class Book extends Item{
 
-    private String author;
-    private String isbn;
+    private String author;//저자
+    private String isbn;//도서번호
+
 }
